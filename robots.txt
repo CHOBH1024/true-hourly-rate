@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pomyjo-true-hourly-rate.vercel.app/sitemap.xml
+Sitemap: https://true-hourly-rate.pomyjo.com/sitemap.xml
