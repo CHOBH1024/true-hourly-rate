@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://true-hourly-rate.pomyjo.com/sitemap.xml
+Sitemap: https://pomyjo.com/sitemap.xml
