@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 내 진짜 시급 & 노동 가치 계산기 | True Hourly Rate Calculator</title>
+  <meta name="description" content="표면적인 연봉/월급 외에 출퇴근 시간, 준비 시간, 스트레스/교통 비용까지 모두 반영한 '진짜 내 시급'을 실시간으로 산출해드립니다. 세계 10대 재무/시급 계산 도구 벤치마크.">
+  <meta name="keywords" content="진짜 시급 계산기, 2026 최저시급, 실수령액 계산기, 연봉 시급 환산, 출퇴근 비용, 노동 가치 계산기, 번아웃 예방, 직장인 시급">
+  <meta property="og:title" content="2026 내 진짜 시급 & 노동 가치 계산기">
+  <meta property="og:description" content="출퇴근 시간과 품위유지비까지 포함된 내 영혼의 진짜 시급은 얼마일까? 지금 바로 계산해보세요.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+      <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-calculator" style="color:var(--primary);"></i>
+        <span>TrueHourly<span style="color:var(--primary);">Rate</span></span>
+        <span class="brand-badge">2026 PRO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#calculator" class="active">계산기</a></li>
+        <li><a href="#benchmark">10대 벤치마크</a></li>
+        <li><a href="#articles">전문 가이드</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-pill">
+        <i class="fa-solid fa-sparkles"></i> 2026 노동 가치 & 시간 비용 최적화 엔진
+      </div>
+      <h1>월급 통장에 찍힌 액수,<br>과연 내 진짜 시급일까요?</h1>
+      <p>출퇴근 시간(주 10시간+), 준비 시간, 직장 스트레스 커피값, 교통비까지 차감했을 때<br>내 인생에서 1시간을 바쳐 버는 <strong>'진짜 시급(True Net Hourly Rate)'</strong>을 계산해 보세요.</p>
+    </div>
+  </header>
+
+  <!-- Main Calculator Grid -->
+  <main class="container" id="calculator">
+    <div class="app-grid">
+      
+      <!-- Input Card -->
+      <section class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-sliders"></i>
+            <span>소득 및 시간 조건 입력</span>
+          </div>
+          <span class="label-hint">실시간 자동 반영</span>
+        </div>
+
+        <form id="calcForm" onsubmit="return false;">
+          <!-- 1. 소득 -->
+          <div class="form-group">
+            <label class="form-label" for="incomeVal">
+              <span>급여 형태 및 금액</span>
+              <select id="incomeType" style="width: auto; padding: 4px 8px; font-size: 0.85rem; border-radius: 6px;">
+                <option value="annual">연봉 (세전)</option>
+                <option value="monthly">월급 (세전)</option>
+              </select>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="incomeVal" value="45000000" step="100000">
+              <span class="input-suffix">원</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bonusVal">
+              <span>연간 성과급 / 기타 수당</span>
+              <span class="label-hint">연간 총합</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="bonusVal" value="3000000" step="100000">
+              <span class="input-suffix">원</span>
+            </div>
+          </div>
+
+          <!-- 2. 시간 -->
+          <div class="form-group">
+            <label class="form-label" for="weeklyHours">
+              <span>주당 정규 근무 시간</span>
+              <span class="label-hint">기본 40시간</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="weeklyHours" value="40" min="1" max="100">
+              <span class="input-suffix">시간</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="overtimeHours">
+              <span>주당 평균 야근 / 주말 근무</span>
+              <span class="label-hint">무급/유급 합산</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="overtimeHours" value="5" min="0" max="50">
+              <span class="input-suffix">시간</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="commuteMinutes">
+              <span>일일 왕복 출퇴근 시간</span>
+              <span class="label-hint">대중교통 / 자차</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="commuteMinutes" value="90" min="0" max="360">
+              <span class="input-suffix">분</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prepMinutes">
+              <span>일일 출근 준비 시간</span>
+              <span class="label-hint">씻기, 옷 입기 등</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="prepMinutes" value="30" min="0" max="180">
+              <span class="input-suffix">분</span>
+            </div>
+          </div>
+
+          <!-- 3. 직장 지출 -->
+          <div class="form-group">
+            <label class="form-label" for="commuteCost">
+              <span>일일 왕복 교통비</span>
+              <span class="label-hint">지하철/버스/유류비</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="commuteCost" value="3500" step="500">
+              <span class="input-suffix">원</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="stressCost">
+              <span>일일 직장 관련 부가 지출</span>
+              <span class="label-hint">커피, 간식, 스트레스성 지출</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="stressCost" value="6000" step="500">
+              <span class="input-suffix">원</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="taxRate">
+              <span>예상 실효 소득세율 (%)</span>
+              <span class="label-hint">기본 15%</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="taxRate" value="15" min="0" max="50">
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Output Dashboard Card -->
+      <section class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-chart-pie" style="color:var(--accent-cyan);"></i>
+            <span>진짜 시급 분석 대시보드</span>
+          </div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-tag">내 진짜 시급 (True Hourly Rate)</div>
+          <div class="result-main-val" id="trueHourlyDisplay">14,250 원</div>
+          <div class="result-diff negative" id="diffPercentageDisplay">-38% (표면 시급 대비 차이)</div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <div class="stat-row">
+            <span class="stat-label">표면 계약 시급 (Gross Wage)</span>
+            <span class="stat-val" id="grossHourlyDisplay">23,076 원</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">2026년 법정 최저시급</span>
+            <span class="stat-val" style="color:var(--accent-emerald);">10,030 원</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">연간 순 실수령액 (직장 비용 차감 후)</span>
+            <span class="stat-val" id="annualTrueIncomeDisplay">3,835 만원</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">연간 직장에 바치는 총 시간 (출퇴근 포함)</span>
+            <span class="stat-val" id="totalWorkHoursDisplay">2,691 시간</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">연간 직장 생활 필수 지출 비용</span>
+            <span class="stat-val" id="totalWorkExpensesDisplay">247 만원</span>
+          </div>
+        </div>
+
+        <!-- Equivalent Goods -->
+        <h4 style="font-size: 0.95rem; font-weight:700; margin-bottom:12px; color:var(--text-muted);">
+          ☕ 내 진짜 시급 기준 생활 물가 체감 시간
+        </h4>
+        <div class="eq-grid">
+          <div class="eq-card">
+            <div class="eq-icon">☕</div>
+            <div class="eq-name">스타벅스 1잔</div>
+            <div class="eq-time" id="eqCoffeeTime">21 분</div>
+          </div>
+          <div class="eq-card">
+            <div class="eq-icon">🚕</div>
+            <div class="eq-name">택시 기본요금</div>
+            <div class="eq-time" id="eqTaxiTime">21 분</div>
+          </div>
+          <div class="eq-card">
+            <div class="eq-icon">📱</div>
+            <div class="eq-name">아이폰 최신형</div>
+            <div class="eq-time" id="eqPhoneHours">105 시간</div>
+          </div>
+        </div>
+
+        <!-- AI Diagnosis -->
+        <div id="aiDiagnosisText" style="background:rgba(11,15,25,0.7); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; font-size:0.92rem; color:var(--text-muted); margin-top:20px; line-height:1.6;">
+          진단을 계산 중입니다...
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="shareBtn">
+            <i class="fa-solid fa-share-nodes"></i> 결과 공유하기
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 10 Benchmark Reference Section -->
+  <section class="container" id="benchmark" style="margin-bottom: 60px;">
+    <div class="benchmark-box">
+      <div class="section-header" style="text-align:left; margin-bottom: 24px;">
+        <span class="article-tag">GLOBAL BENCHMARK ANALYSIS</span>
+        <h2 style="font-size: 1.6rem; font-weight:800; margin-top:4px;">세계 10대 글로벌 시급 & 재무 계산 도구 비교</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-top:6px;">
+          NerdWallet, SmartAsset, Salary.com 등 해외 유명 금융 툴의 시급 산출 모델을 종합하여 개발된 2026 한국형 표준 모델입니다.
+        </p>
+      </div>
+
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th>글로벌 서비스명</th>
+            <th>주요 계산 항목</th>
+            <th>TrueHourlyRate 모델 반영 여부</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SmartAsset Paycheck Calculator</strong></td>
+            <td>세금, 공제액, 실효 소득세율 산출</td>
+            <td><span style="color:var(--accent-emerald);">✓ 100% 반영 (소득세율 공제)</span></td>
+          </tr>
+          <tr>
+            <td><strong>NerdWallet Cost of Living</strong></td>
+            <td>지역별 출퇴근비, 생활 물가 가성비</td>
+            <td><span style="color:var(--accent-emerald);">✓ 100% 반영 (교통/출퇴근 지출)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Salary.com Total Comp</strong></td>
+            <td>성과급, 상여 수당 포함 실질 가치</td>
+            <td><span style="color:var(--accent-emerald);">✓ 100% 반영 (성과급 합산)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Harvard Business Review (HBR)</strong></td>
+            <td>출퇴근 시간에 따른 피로도 및 기회비용</td>
+            <td><span style="color:var(--accent-emerald);">✓ 100% 반영 (준비/이동 시간 차감)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Investopedia Opportunity Cost</strong></td>
+            <td>시간의 기회비용(Opportunity Cost) 측정</td>
+            <td><span style="color:var(--accent-emerald);">✓ 100% 반영 (시간 환산 물가)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Featured Articles Section for AdSense Approval -->
+  <section class="content-section" id="articles">
+    <div class="container">
+      <div class="section-header">
+        <span class="hero-pill">EXPERT GUIDES & ARTICLES</span>
+        <h2 class="section-title">직장인 노동 가치 & 시급 높이기 심층 가이드</h2>
+        <p class="section-desc">내 시간의 가치를 극대화하고 직장 생활의 효율을 높이는 5가지 필수 분석 리포트입니다.</p>
+      </div>
+
+      <div class="article-grid">
+        <!-- Article 1 -->
+        <a href="articles/true-hourly-rate-guide.html" class="article-card">
+          <div>
+            <div class="article-tag">핵심 분석 리포트</div>
+            <h3 class="article-h3">2026 직장인 실질 시급 산출 공식 및 분석 가이드</h3>
+            <p class="article-summary">표면 연봉 5,000만원의 실제 시급은 왜 최저시급 근처로 떨어지는가? 4가지 숨은 시간과 비용 요인 완벽 해부.</p>
+          </div>
+          <div class="article-meta">
+            <span><i class="fa-regular fa-clock"></i> 8분 읽기</span>
+            <span>• 2026.07.30</span>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="articles/commute-cost-analysis.html" class="article-card">
+          <div>
+            <div class="article-tag">시간 비용 분석</div>
+            <h3 class="article-h3">출퇴근 시간이 내 삶의 가치와 시급에 미치는 경제적 영향</h3>
+            <p class="article-summary">하루 왕복 2시간 출퇴근이 1년에 500시간을 버리는 이유. 이동 시간을 자산으로 바꾸는 전략.</p>
+          </div>
+          <div class="article-meta">
+            <span><i class="fa-regular fa-clock"></i> 6분 읽기</span>
+            <span>• 2026.07.30</span>
+          </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="articles/hidden-work-costs.html" class="article-card">
+          <div>
+            <div class="article-tag">직장 지출 가이드</div>
+            <h3 class="article-h3">직장인이 통장에서 놓치는 숨은 노동 비용 7가지</h3>
+            <p class="article-summary">커피값, 스트레스성 야식, 품위유지비... 일하기 위해 쓰는 돈을 아끼는 실전 직장인 재테크.</p>
+          </div>
+          <div class="article-meta">
+            <span><i class="fa-regular fa-clock"></i> 7분 읽기</span>
+            <span>• 2026.07.30</span>
+          </div>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="articles/time-value-optimization.html" class="article-card">
+          <div>
+            <div class="article-tag">생산성 극대화</div>
+            <h3 class="article-h3">노동 가치와 시급을 20% 높이는 직장인 시급 최적화 5단계</h3>
+            <p class="article-summary">무급 야근 줄이기, 업무 자동화 툴 활용, 이직 협상 시 진짜 시급 활용법 총정리.</p>
+          </div>
+          <div class="article-meta">
+            <span><i class="fa-regular fa-clock"></i> 9분 읽기</span>
+            <span>• 2026.07.30</span>
+          </div>
+        </a>
+
+        <!-- Article 5 -->
+        <a href="articles/2026-salary-breakdown-table.html" class="article-card">
+          <div>
+            <div class="article-tag">2026 통계 표준</div>
+            <h3 class="article-h3">2026년 연봉별 실수령액 및 진짜 시급 표준 비교표</h3>
+            <p class="article-summary">연봉 3,000만원부터 1억원까지, 평균 출퇴근 시간 반영 시 실수령 시급 완전 비교 데이터.</p>
+          </div>
+          <div class="article-meta">
+            <span><i class="fa-regular fa-clock"></i> 10분 읽기</span>
+            <span>• 2026.07.30</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">TrueHourlyRate Calculator</div>
+          <p style="line-height:1.6; margin-bottom:16px;">
+            TrueHourlyRate는 현대 직장인들이 자신의 정당한 노동 가치와 시간 자산을 객관적으로 평가할 수 있도록 돕는 프리미엄 금융/시간 분석 플랫폼입니다.
+          </p>
+        </div>
+        <div>
+          <div class="footer-links-title">바로가기</div>
+          <ul class="footer-links">
+            <li><a href="#calculator">진짜 시급 계산기</a></li>
+            <li><a href="#benchmark">10대 벤치마크</a></li>
+            <li><a href="#articles">전문 가이드</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-links-title">정책 & 아티클</div>
+          <ul class="footer-links">
+            <li><a href="about.html">사이트 소개</a></li>
+            <li><a href="privacy.html">개인정보 처리방침</a></li>
+            <li><a href="terms.html">이용약관</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-links-title">2026 기준 정보</div>
+          <p style="font-size:0.85rem; line-height:1.5;">
+            2026년 법정 최저시급: 10,030원<br>
+            주 52시간 제도가 적용된 시간/비용 데이터 모델 기반.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 TrueHourlyRate. All rights reserved. 본 웹사이트의 모든 구동 방식 및 가이드는 저작권법의 보호를 받습니다.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
