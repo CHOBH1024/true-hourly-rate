@@ -1,0 +1,318 @@
+﻿node.exe : Vercel CLI 58.4.0 (Node.js 24.13.1) | api is in beta ??https://vercel.com/feedback
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Vercel CLI 58.4...el.com/feedback:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+{
+  "accountId": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+  "creator": {
+    "type": "user",
+    "user": {
+      "id": "on70oy8glCcKu3CoWGvxChL5"
+    },
+    "via": {
+      "type": "app",
+      "app": {
+        "id": "cl_HYyOPBNtFMfHhaUn9L4QPfTZz6TP47bp"
+      }
+    }
+  },
+  "alias": [],
+  "speedInsights": {
+    "id": "iYg5odCFLFLZ6MLSjFweChTGAO0",
+    "hasData": false
+  },
+  "autoExposeSystemEnvs": true,
+  "autoAssignCustomDomains": true,
+  "autoAssignCustomDomainsUpdatedBy": "system",
+  "buildCommand": null,
+  "commandForIgnoringBuildStep": null,
+  "createdAt": 1785406261907,
+  "crons": {
+    "enabledAt": 1785406269504,
+    "disabledAt": null,
+    "updatedAt": 1785419446075,
+    "deploymentId": "dpl_FnKrVgw5LKsRpKpRwYzhqiNHzGPT",
+    "definitions": []
+  },
+  "deploymentExpiration": {
+    "expirationDays": 30,
+    "expirationDaysProduction": 30,
+    "expirationDaysCanceled": 30,
+    "expirationDaysErrored": 30,
+    "deploymentsToKeep": 10
+  },
+  "devCommand": null,
+  "directoryListing": false,
+  "framework": null,
+  "gitForkProtection": true,
+  "gitLFS": false,
+  "id": "prj_fXMSSJ85afQtlUKhUXL1pfRD3pZo",
+  "installCommand": null,
+  "lastRollbackTarget": null,
+  "lastAliasRequest": null,
+  "name": "pomyjo-true-hourly-rate",
+  "nodeVersion": "24.x",
+  "outputDirectory": null,
+  "productionDeploymentsFastLane": true,
+  "defaultResourceConfig": {
+    "fluid": true,
+    "functionDefaultRegions": [
+      "iad1"
+    ],
+    "functionDefaultTimeout": 300,
+    "functionDefaultMemoryType": "standard",
+    "functionZeroConfigFailover": false,
+    "elasticConcurrencyEnabled": false
+  },
+  "resourceConfig": {
+    "fluid": true,
+    "functionDefaultRegions": [
+      "iad1"
+    ]
+  },
+  "rootDirectory": null,
+  "serverlessFunctionRegion": "iad1",
+  "sourceFilesOutsideRootDirectory": true,
+  "ssoProtection": {
+    "deploymentType": "all_except_custom_domains"
+  },
+  "updatedAt": 1785419446075,
+  "live": false,
+  "enableExternalRewriteCaching": true,
+  "gitComments": {
+    "onCommit": false,
+    "onPullRequest": true
+  },
+  "gitProviderOptions": {
+    "createDeployments": "enabled"
+  },
+  "webAnalytics": {
+    "id": "GHiyeentZmXpRbLp6UOhmSNqT"
+  },
+  "oidcTokenConfig": {
+    "enabled": true,
+    "issuerMode": "team"
+  },
+  "hasDeployments": true,
+  "link": {
+    "type": "github",
+    "repo": "true-hourly-rate",
+    "repoId": 1317109831,
+    "org": "CHOBH1024",
+    "repoOwnerId": 249244498,
+    "gitCredentialId": "cred_9c20ee35ab25aebf4da311d1290cc066f229416f",
+    "productionBranch": "master",
+    "createdAt": 1785406263403,
+    "updatedAt": 1785406263403,
+    "deployHooks": []
+  },
+  "latestDeployments": [
+    {
+      "alias": [
+        "pomyjo-true-hourly-rate.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024-chobh1024s-projects.vercel.app"
+      ],
+      "aliasAssigned": 1785419446018,
+      "aliasError": null,
+      "automaticAliases": [
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024-chobh1024s-projects.vercel.app"
+      ],
+      "builds": [],
+      "createdAt": 1785419442168,
+      "createdIn": "sfo1",
+      "creator": {
+        "uid": "on70oy8glCcKu3CoWGvxChL5",
+        "email": "nokira1024@gmail.com",
+        "username": "chobh1024"
+      },
+      "deploymentHostname": "pomyjo-true-hourly-rate-8s8w45260-chobh1024s-projects",
+      "forced": false,
+      "id": "dpl_FnKrVgw5LKsRpKpRwYzhqiNHzGPT",
+      "meta": {
+        "githubCommitAuthorName": "CHOBH1024",
+        "githubCommitAuthorEmail": "CHOBH1024@users.noreply.github.com",
+        "githubCommitMessage": "auto-sync: Obsidian & GitHub tracker (2026-07-30)",
+        "githubCommitOrg": "CHOBH1024",
+        "githubCommitRef": "master",
+        "githubCommitRepo": "true-hourly-rate",
+        "githubCommitSha": "81967ea3e43cb057c55dede2071625a1ae264e45",
+        "githubDeployment": "1",
+        "githubOrg": "CHOBH1024",
+        "githubRepo": "true-hourly-rate",
+        "gitDirty": "1"
+      },
+      "name": "pomyjo-true-hourly-rate",
+      "plan": "hobby",
+      "private": true,
+      "readyState": "READY",
+      "readySubstate": "PROMOTED",
+      "target": "production",
+      "teamId": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+      "type": "LAMBDAS",
+      "url": "pomyjo-true-hourly-rate-8s8w45260-chobh1024s-projects.vercel.app",
+      "userId": "on70oy8glCcKu3CoWGvxChL5",
+      "withCache": false,
+      "buildingAt": 1785419443728,
+      "readyAt": 1785419445802,
+      "previewCommentsEnabled": true,
+      "oidcTokenClaims": {
+        "sub": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "iss": "https://oidc.vercel.com/chobh1024s-projects",
+        "scope": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "aud": "https://vercel.com/chobh1024s-projects",
+        "owner": "chobh1024s-projects",
+        "owner_id": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+        "project": "pomyjo-true-hourly-rate",
+        "project_id": "prj_fXMSSJ85afQtlUKhUXL1pfRD3pZo",
+        "environment": "production",
+        "plan": "hobby"
+      }
+    },
+    {
+      "alias": [
+        "pomyjo-true-hourly-rate.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-git-master-chobh1024s-projects.vercel.app"
+      ],
+      "aliasAssigned": 1785406905206,
+      "aliasError": null,
+      "automaticAliases": [
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-git-master-chobh1024s-projects.vercel.app"
+      ],
+      "builds": [],
+      "createdAt": 1785406890851,
+      "createdIn": "sfo1",
+      "creator": {
+        "uid": "on70oy8glCcKu3CoWGvxChL5",
+        "email": "nokira1024@gmail.com",
+        "username": "chobh1024",
+        "githubLogin": "CHOBH1024"
+      },
+      "deploymentHostname": "pomyjo-true-hourly-rate-a5psiy5oa-chobh1024s-projects",
+      "forced": false,
+      "id": "dpl_pDHDCFzbYqGU8Pi4xsxPPUqUvwbx",
+      "meta": {
+        "githubCommitAuthorName": "CHOBH1024",
+        "githubCommitAuthorEmail": "CHOBH1024@users.noreply.github.com",
+        "githubCommitMessage": "auto-sync: Obsidian & GitHub tracker (2026-07-30)",
+        "githubCommitOrg": "CHOBH1024",
+        "githubCommitRef": "master",
+        "githubCommitRepo": "true-hourly-rate",
+        "githubCommitSha": "81967ea3e43cb057c55dede2071625a1ae264e45",
+        "githubDeployment": "1",
+        "githubOrg": "CHOBH1024",
+        "githubRepo": "true-hourly-rate",
+        "githubRepoOwnerType": "User",
+        "githubCommitRepoId": "1317109831",
+        "githubRepoId": "1317109831",
+        "githubRepoVisibility": "public",
+        "githubHost": "github.com",
+        "githubCommitAuthorLogin": "CHOBH1024",
+        "githubCommitVerification": "unverified",
+        "repoPushedAt": "1785406888000",
+        "branchAlias": "pomyjo-true-hourly-rate-git-master-chobh1024s-projects.vercel.app"
+      },
+      "name": "pomyjo-true-hourly-rate",
+      "plan": "hobby",
+      "private": true,
+      "readyState": "READY",
+      "readySubstate": "PROMOTED",
+      "target": "production",
+      "teamId": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+      "type": "LAMBDAS",
+      "url": "pomyjo-true-hourly-rate-a5psiy5oa-chobh1024s-projects.vercel.app",
+      "userId": "on70oy8glCcKu3CoWGvxChL5",
+      "withCache": false,
+      "buildingAt": 1785406903488,
+      "readyAt": 1785406904984,
+      "previewCommentsEnabled": true,
+      "oidcTokenClaims": {
+        "sub": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "iss": "https://oidc.vercel.com/chobh1024s-projects",
+        "scope": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "aud": "https://vercel.com/chobh1024s-projects",
+        "owner": "chobh1024s-projects",
+        "owner_id": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+        "project": "pomyjo-true-hourly-rate",
+        "project_id": "prj_fXMSSJ85afQtlUKhUXL1pfRD3pZo",
+        "environment": "production",
+        "plan": "hobby"
+      }
+    }
+  ],
+  "targets": {
+    "production": {
+      "alias": [
+        "pomyjo-true-hourly-rate.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024-chobh1024s-projects.vercel.app"
+      ],
+      "aliasAssigned": 1785419446018,
+      "aliasError": null,
+      "automaticAliases": [
+        "pomyjo-true-hourly-rate-chobh1024s-projects.vercel.app",
+        "pomyjo-true-hourly-rate-chobh1024-chobh1024s-projects.vercel.app"
+      ],
+      "builds": [],
+      "createdAt": 1785419442168,
+      "createdIn": "sfo1",
+      "creator": {
+        "uid": "on70oy8glCcKu3CoWGvxChL5",
+        "email": "nokira1024@gmail.com",
+        "username": "chobh1024"
+      },
+      "deploymentHostname": "pomyjo-true-hourly-rate-8s8w45260-chobh1024s-projects",
+      "forced": false,
+      "id": "dpl_FnKrVgw5LKsRpKpRwYzhqiNHzGPT",
+      "meta": {
+        "githubCommitAuthorName": "CHOBH1024",
+        "githubCommitAuthorEmail": "CHOBH1024@users.noreply.github.com",
+        "githubCommitMessage": "auto-sync: Obsidian & GitHub tracker (2026-07-30)",
+        "githubCommitOrg": "CHOBH1024",
+        "githubCommitRef": "master",
+        "githubCommitRepo": "true-hourly-rate",
+        "githubCommitSha": "81967ea3e43cb057c55dede2071625a1ae264e45",
+        "githubDeployment": "1",
+        "githubOrg": "CHOBH1024",
+        "githubRepo": "true-hourly-rate",
+        "gitDirty": "1"
+      },
+      "name": "pomyjo-true-hourly-rate",
+      "plan": "hobby",
+      "private": true,
+      "readyState": "READY",
+      "readySubstate": "PROMOTED",
+      "target": "production",
+      "teamId": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+      "type": "LAMBDAS",
+      "url": "pomyjo-true-hourly-rate-8s8w45260-chobh1024s-projects.vercel.app",
+      "userId": "on70oy8glCcKu3CoWGvxChL5",
+      "withCache": false,
+      "buildingAt": 1785419443728,
+      "readyAt": 1785419445802,
+      "previewCommentsEnabled": true,
+      "oidcTokenClaims": {
+        "sub": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "iss": "https://oidc.vercel.com/chobh1024s-projects",
+        "scope": "owner:chobh1024s-projects:project:pomyjo-true-hourly-rate:environment:production",
+        "aud": "https://vercel.com/chobh1024s-projects",
+        "owner": "chobh1024s-projects",
+        "owner_id": "team_ubBZHBbBQrQlAAkiiFyxtUIt",
+        "project": "pomyjo-true-hourly-rate",
+        "project_id": "prj_fXMSSJ85afQtlUKhUXL1pfRD3pZo",
+        "environment": "production",
+        "plan": "hobby"
+      }
+    }
+  },
+  "features": {
+    "webAnalytics": false
+  },
+  "protectedSourcemaps": true
+}
