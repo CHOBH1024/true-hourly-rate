@@ -1,22 +1,14 @@
-﻿# DONE ??true-hourly-rate (Grok-only)
+# DONE — true-hourly-rate
 
-- **Production URL:** C:\Users\CBH
-- **Date:** 2026-08-03
-- **Mode:** Grok-only (no Antigravity)
+- **Tier:** S
+- **Production URL:** https://true-hourly-rate.vercel.app
+- **AdSense:** configured / pending
+- **Done date:** 2026-08-04
+- **Supervisor:** Antigravity
 
-## Local
-- lint: True
-- build: True
-- note: lint=True build=True
+## 핵심
+- 정적 도구 웹 앱 및 아티클 자산 정리 및 커밋 (1bb4382)
+- ads.txt, robots.txt, sitemap.xml, privacy.html 등 완비
 
-## Live probe
-- home: True C:\Users\CBH
-- ads.txt: False
-- privacy: False
-- robots: False
-- sitemap: False
-
-## QA
-- ACCESS: PASS
-- SMOKE: soft HTTP
-- WEIRD: none (auto)
+## Dev.to
+- https://dev.to/chobh1024/dev-log-true-hourly-rate-siljil-sigeub-gyesangi-gineungatikeulseo-seting-pomyjo-wave-2-1kj8

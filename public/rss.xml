@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>true-hourly-rate - Diagnostic Suite & Platform</title>
+  <link>https://pomyjo.com/true-hourly-rate</link>
+  <description>Official diagnostic tool and psychological insights platform for true-hourly-rate.</description>
+  <language>ko-kr</language>
+  <lastBuildDate>Tue, 04 Aug 2026 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://pomyjo.com/true-hourly-rate/rss.xml" rel="self" type="application/rss+xml" />
+  
+  <item>
+    <title>true-hourly-rate Diagnostic Tool (Korean)</title>
+    <link>https://pomyjo.com/true-hourly-rate</link>
+    <description>Take the official diagnostic test on true-hourly-rate.</description>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <guid>https://pomyjo.com/true-hourly-rate#ko</guid>
+  </item>
+  
+  <item>
+    <title>true-hourly-rate Diagnostic Tool (English Global)</title>
+    <link>https://pomyjo.com/true-hourly-rate/en</link>
+    <description>Take the official global diagnostic test on true-hourly-rate.</description>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <guid>https://pomyjo.com/true-hourly-rate#en</guid>
+  </item>
+</channel>
+</rss>
