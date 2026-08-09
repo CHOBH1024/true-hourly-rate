@@ -2,3 +2,9 @@ User-agent: *
 Allow: /
 Sitemap: https://pomyjo.com/sitemaps/true-hourly-rate-sitemap.xml
 Sitemap: https://pomyjo.com/true-hourly-rate/rss.xml
+
+User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
