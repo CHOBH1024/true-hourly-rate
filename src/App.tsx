@@ -34,6 +34,12 @@ export function App() {
   const [nickname, setNickname] = useState('');
   const [shareNote, setShareNote] = useState('');
   const [total, setTotal] = useState(12480);
+  // New inputs for true hourly rate calculation
+  const [salary, setSalary] = useState<number>(0); // Annual after-tax income
+  const [expenses, setExpenses] = useState<number>(0); // Annual work‑related expenses
+  const [workHours, setWorkHours] = useState<number>(40); // Weekly work hours
+  const [commuteHours, setCommuteHours] = useState<number>(1); // Daily commute hours
+  const [prepHours, setPrepHours] = useState<number>(0.5); // Daily preparation hours
   const [feedError, setFeedError] = useState<string | null>(null);
 
   const refreshFeed = async () => {
@@ -62,16 +68,23 @@ export function App() {
     textEn: `Item ${i + 1}: Behavioral & diagnostic assessment.`
   }));
 
-  const handleAnswer = () => {
+  const handleAnswer = async () => {
     if (currentIdx + 1 < questions.length) {
       setCurrentIdx(currentIdx + 1);
     } else {
+      // Calculate true hourly rate based on user inputs
+      const annualHours = workHours * 52 + (commuteHours + prepHours) * 5 * 52; // assume 5 workdays/week
+      const netIncome = salary - expenses;
+      const hourlyRate = annualHours > 0 ? Math.round(netIncome / annualHours) : 0;
       setResult({
         nameKo: "분석형 완벽주의자 (Analytical Perfectionist)",
         nameEn: "Analytical Perfectionist",
         emoji: "📊",
         descKo: "데이터와 정밀성을 추구하며 완벽한 결과를 위해 최선을 다하는 유형입니다.",
-        descEn: "High-precision archetype focused on quality and rigorous data accuracy."
+        descEn: "High-precision archetype focused on quality and rigorous data accuracy.",
+        hourlyRate,
+        insightKo: `당신의 실제 시급은 약 ${hourlyRate.toLocaleString()}원이며, 이는 연봉 대비 시간당 가치를 정확히 반영합니다.`,
+        insightEn: `Your true hourly rate is approximately ${hourlyRate.toLocaleString()} KRW, reflecting the real value of each working hour.`
       });
     }
   };
@@ -134,6 +147,27 @@ export function App() {
           {lang === 'ko' ? 'English' : '한국어'}
         </button>
       </header>
+      {/* Salary & Expense Input Section */}
+      <section className="max-w-2xl mx-auto px-6 py-4 bg-slate-900/60 backdrop-blur-lg rounded-xl mb-6">
+        <h2 className="text-lg font-bold text-white mb-2">💰 내 연봉·비용 입력</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="number" placeholder="연봉 (세후) KRW" value={salary}
+            onChange={e => setSalary(Number(e.target.value))}
+            className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white" />
+          <input type="number" placeholder="연간 직장 유지 비용 KRW" value={expenses}
+            onChange={e => setExpenses(Number(e.target.value))}
+            className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white" />
+          <input type="number" placeholder="주당 근무시간" value={workHours}
+            onChange={e => setWorkHours(Number(e.target.value))}
+            className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white" />
+          <input type="number" placeholder="하루 출퇴근 시간" value={commuteHours}
+            onChange={e => setCommuteHours(Number(e.target.value))}
+            className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white" />
+          <input type="number" placeholder="하루 준비 시간" value={prepHours}
+            onChange={e => setPrepHours(Number(e.target.value))}
+            className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-white" />
+        </div>
+      </section>
 
       {/* Main Container */}
       <main className="max-w-2xl mx-auto px-6 py-8 w-full flex-1">
@@ -178,9 +212,21 @@ export function App() {
               <div className="bg-slate-900 border border-indigo-500/30 p-8 rounded-2xl text-center space-y-6">
                 <div className="text-6xl">{result.emoji}</div>
                 <div>
-                  <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-bold rounded-full">진단 결과</span>
+                  <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-bold rounded-full">
+                    진단 결과
+                  </span>
                   <h1 className="text-2xl font-bold text-white my-2">{result.nameKo}</h1>
                   <p className="text-xs text-slate-300 max-w-md mx-auto">{result.descKo}</p>
+                  {/* True Hourly Rate Insight */}
+                  <p className="mt-2 text-sm text-emerald-300">{result.insightKo}</p>
+                  {/* Scientific / psychological rationale */}
+                  <p className="mt-1 text-xs text-slate-400">이 결과는 노동 경제학과 행동심리학 연구를 기반으로 합니다.</p>
+                  {/* Call to Action */}
+                  <button onClick={() => navigator.share({title: 'My True Hourly Rate', text: result.insightKo, url: window.location.href})}
+                    className="mt-3 px-4 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-full text-xs transition transform hover:scale-105"
+                  >
+                    결과 공유하고 커뮤니티에 참여하기 🚀
+                  </button>
                 </div>
 
                 {/* Online Result Share Box */}
