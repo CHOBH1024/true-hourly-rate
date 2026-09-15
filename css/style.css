@@ -596,3 +596,46 @@ input[type="range"] {
   border-top: 1px solid var(--border-color);
   color: var(--text-dim);
 }
+
+
+/* Viral share hook (after results) */
+.share-hook-line {
+  margin: 14px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c7d2fe;
+  line-height: 1.45;
+}
+
+.share-hook {
+  margin-top: 20px;
+  padding-top: 4px;
+}
+
+.share-hook .action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.share-hint {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--accent-emerald);
+}
