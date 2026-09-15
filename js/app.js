@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // AI Diagnosis Text Generation
     generateAIDiagnosis(trueHourlyRate, grossHourlyRate, cMinsDaily, sCostDaily);
+    updateShareHook(trueHourlyRate, grossHourlyRate);
   }
 
   function generateAIDiagnosis(trueRate, grossRate, commuteMins, stressCostVal) {
@@ -133,23 +134,78 @@ document.addEventListener('DOMContentLoaded', () => {
     aiDiagnosisText.innerHTML = advice;
   }
 
-  // Initial Calculation
-  calculateTrueRate();
+  const MIN_WAGE_2026 = 10320;
+  const shareHookLine = document.getElementById('shareHookLine');
+  const shareHint = document.getElementById('shareHint');
 
-  // Share Buttons
+  function updateShareHook(trueRate, grossRate) {
+    if (!shareHookLine) return;
+    const trueRounded = Math.round(trueRate);
+    const grossRounded = Math.round(grossRate);
+    let line = '';
+    if (trueRounded < MIN_WAGE_2026) {
+      line = `진짜 시급 ${trueRounded.toLocaleString()}원 — 2026 최저시급(10,320원)보다 낮아요.`;
+    } else if (grossRounded > 0 && trueRounded < grossRounded) {
+      const drop = grossRounded - trueRounded;
+      line = `명목 ${grossRounded.toLocaleString()}원 → 진짜 ${trueRounded.toLocaleString()}원 (시간·비용으로 ${drop.toLocaleString()}원 깎임).`;
+    } else if (grossRounded > 0) {
+      line = `진짜 시급 ${trueRounded.toLocaleString()}원 — 명목(${grossRounded.toLocaleString()}원)과 비슷하게 지켜지고 있어요.`;
+    } else {
+      line = `진짜 시급 ${trueRounded.toLocaleString()}원. 숫자를 넣으면 명목·최저시급과 비교돼요.`;
+    }
+    shareHookLine.textContent = line;
+  }
+
+  function sharePayload() {
+    const rateText = trueHourlyDisplay ? trueHourlyDisplay.textContent : '';
+    const hook = shareHookLine ? shareHookLine.textContent : '';
+    return {
+      title: '내 진짜 시급 | POMYJO',
+      text: hook || `내 진짜 시급은 ${rateText}입니다. 출퇴근·비용을 넣으면 숫자가 달라져요.`,
+      url: 'https://true-hourly-rate.pomyjo.com/',
+    };
+  }
+
+  function showShareHint(msg) {
+    if (!shareHint) return;
+    shareHint.hidden = false;
+    shareHint.textContent = msg;
+    clearTimeout(showShareHint._t);
+    showShareHint._t = setTimeout(() => { shareHint.hidden = true; }, 2200);
+  }
+
+  async function copyShareLink() {
+    const { text, url } = sharePayload();
+    const clip = `${text}\n${url}`;
+    try {
+      await navigator.clipboard.writeText(clip);
+      showShareHint('결과 한 줄 + 링크를 복사했어요.');
+    } catch (e) {
+      showShareHint('복사에 실패했어요. 주소창 링크를 직접 공유해 주세요.');
+    }
+  }
+
   const shareBtn = document.getElementById('shareBtn');
   if (shareBtn) {
-    shareBtn.addEventListener('click', () => {
+    shareBtn.addEventListener('click', async () => {
+      const payload = sharePayload();
       if (navigator.share) {
-        navigator.share({
-          title: '2026 내 진짜 시급 & 노동 가치 계산기',
-          text: `내 진짜 시급은 ${trueHourlyDisplay.textContent}입니다! 당신의 진짜 시급도 계산해보세요.`,
-          url: window.location.href,
-        });
-      } else {
-        navigator.clipboard.writeText(window.location.href);
-        alert('링크가 클립보드에 복사되었습니다!');
+        try {
+          await navigator.share(payload);
+          return;
+        } catch (e) {
+          if (e && e.name === 'AbortError') return;
+        }
       }
+      await copyShareLink();
     });
   }
+
+  const copyLinkBtn = document.getElementById('copyLinkBtn');
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', () => { copyShareLink(); });
+  }
+
+  // Initial Calculation (after share hook helpers exist)
+  calculateTrueRate();
 });

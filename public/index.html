@@ -191,6 +191,7 @@
           <div class="result-tag">내 진짜 시급 (True Hourly Rate)</div>
           <div class="result-main-val" id="trueHourlyDisplay">14,250 원</div>
           <div class="result-diff negative" id="diffPercentageDisplay">-38% (표면 시급 대비 차이)</div>
+          <p class="share-hook-line" id="shareHookLine" aria-live="polite">명목 시급보다 낮은지, 계산 결과가 여기에 한 줄로 정리됩니다.</p>
         </div>
 
         <div style="margin-bottom: 24px;">
@@ -243,10 +244,16 @@
           진단을 계산 중입니다...
         </div>
 
-        <div class="action-buttons">
-          <button class="btn btn-primary" id="shareBtn">
-            <i class="fa-solid fa-share-nodes"></i> 결과 공유하기
-          </button>
+        <div class="share-hook" id="shareHook">
+          <div class="action-buttons">
+            <button type="button" class="btn btn-primary" id="shareBtn" aria-label="결과 공유">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> 결과 공유
+            </button>
+            <button type="button" class="btn btn-ghost" id="copyLinkBtn" aria-label="링크 복사">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i> 링크 복사
+            </button>
+          </div>
+          <p class="share-hint" id="shareHint" hidden></p>
         </div>
       </section>
 
