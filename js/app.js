@@ -119,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!aiDiagnosisText) return;
 
     let gap = grossRate - trueRate;
-    let minWage2026 = 10030; // 2026 minimum wage reference
+    let minWage2026 = 10320; // 2026 minimum wage reference
 
     let advice = '';
     if (trueRate < minWage2026) {
-      advice = `⚠️ <strong>경고:</strong> 출퇴근 시간과 직장 스트레스 비용을 포함한 실제 시급(${Math.round(trueRate).toLocaleString()}원)이 2026년 최저시급(10,030원)보다 낮습니다! 출퇴근 시간 단축이나 고정비 절감이 시급합니다.`;
+      advice = `⚠️ <strong>경고:</strong> 출퇴근 시간과 직장 스트레스 비용을 포함한 실제 시급(${Math.round(trueRate).toLocaleString()}원)이 2026년 최저시급(10,320원)보다 낮습니다! 출퇴근 시간 단축이나 고정비 절감이 시급합니다.`;
     } else if (gap > 5000) {
       advice = `💡 <strong>개선 필요:</strong> 표면 시급과 실제 시급 차이가 시간당 ${Math.round(gap).toLocaleString()}원이나 발생하고 있습니다. 일일 출퇴근 시간(${commuteMins}분)과 무의식적 직장 스트레스 지출을 줄이면 실질 소득이 크게 늘어납니다.`;
     } else {
