@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const MIN_WAGE_2026 = 10320;
   const shareHookLine = document.getElementById('shareHookLine');
+  const surfaceVsTrue = document.getElementById('surfaceVsTrue');
   const shareHint = document.getElementById('shareHint');
 
   function updateShareHook(trueRate, grossRate) {
@@ -154,14 +155,27 @@ document.addEventListener('DOMContentLoaded', () => {
       line = `진짜 시급 ${trueRounded.toLocaleString()}원. 숫자를 넣으면 명목·최저시급과 비교돼요.`;
     }
     shareHookLine.textContent = line;
+    if (surfaceVsTrue) {
+      if (grossRounded > 0 || trueRounded > 0) {
+        surfaceVsTrue.textContent = `표면 ${grossRounded.toLocaleString()} · 진짜 ${trueRounded.toLocaleString()}`;
+        surfaceVsTrue.hidden = false;
+      } else {
+        surfaceVsTrue.textContent = '';
+        surfaceVsTrue.hidden = true;
+      }
+    }
   }
 
   function sharePayload() {
     const rateText = trueHourlyDisplay ? trueHourlyDisplay.textContent : '';
     const hook = shareHookLine ? shareHookLine.textContent : '';
+    let text = hook || `내 진짜 시급은 ${rateText}입니다. 출퇴근·비용을 넣으면 숫자가 달라져요.`;
+    if (text && !text.includes('POMYJO') && (text.length + 9) <= 200) {
+      text = `${text} | POMYJO`;
+    }
     return {
-      title: '내 진짜 시급 | POMYJO',
-      text: hook || `내 진짜 시급은 ${rateText}입니다. 출퇴근·비용을 넣으면 숫자가 달라져요.`,
+      title: '통근 늘면 연봉↑도 시급↓',
+      text,
       url: 'https://true-hourly-rate.pomyjo.com/',
     };
   }
@@ -179,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clip = `${text}\n${url}`;
     try {
       await navigator.clipboard.writeText(clip);
-      showShareHint('결과 한 줄 + 링크를 복사했어요.');
+      showShareHint('카톡·트위터에 붙여넣으면 훅+링크가 가요.');
     } catch (e) {
       showShareHint('복사에 실패했어요. 주소창 링크를 직접 공유해 주세요.');
     }
