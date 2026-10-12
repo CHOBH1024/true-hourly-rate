@@ -2,7 +2,7 @@
 
 - **Tier:** S
 - **Production URL:** https://true-hourly-rate.vercel.app
-- **AdSense:** configured / pending
+- **광고:** 하위 도메인에서는 미게재
 - **Done date:** 2026-08-04
 - **Supervisor:** Antigravity
 
